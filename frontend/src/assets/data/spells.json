@@ -1,0 +1,12 @@
+[
+    {
+        "name": "examplespell",
+        "description": "Example Description.",
+        "duration": "something"
+    },
+    {
+        "name": "otherspell",
+        "description": "Other Description.",
+        "duration": "something else"
+    }
+]
