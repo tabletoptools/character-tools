@@ -11,5 +11,5 @@ export interface Class {
 }
 
 export interface Spell {
-    
+
 }
