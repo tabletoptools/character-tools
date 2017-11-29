@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Character} from "../Model";
+import {AppForm} from "../Form";
 
 @Component({
-  selector: 'app-character-form',
-  templateUrl: './character-form.component.html',
-  styleUrls: ['./character-form.component.css']
+    selector: 'app-character-form',
+    templateUrl: './character-form.component.html',
+    styleUrls: ['./character-form.component.css']
 })
-export class CharacterFormComponent implements OnInit {
+export class CharacterFormComponent extends AppForm implements OnInit {
 
-  constructor() { }
+    @Input()
+    model: Character;
 
-  ngOnInit() {
-  }
+    @Output()
+    modelChange: EventEmitter<Character> = new EventEmitter();
+
+    constructor() {
+    }
+
+    ngOnInit() {
+    }
 
 }
