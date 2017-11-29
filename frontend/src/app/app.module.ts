@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import {MatCardModule, MatExpansionModule, MatIconModule, MatInputModule, MatTableModule} from "@angular/material";
+import {MatCardModule, MatExpansionModule, MatFormFieldModule, MatIconModule, MatInputModule, MatTableModule} from "@angular/material";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { CharacterFormComponent } from './character-form/character-form.component';
+import {CharacterListComponent} from "./character-list/character-list.component";
 
 
 @NgModule({
@@ -15,7 +16,7 @@ import { CharacterFormComponent } from './character-form/character-form.componen
     CharacterFormComponent
   ],
   imports: [
-    BrowserModule, MatExpansionModule, MatCardModule, MatInputModule, MatIconModule, BrowserAnimationsModule, MatTableModule
+    BrowserModule, MatExpansionModule, MatCardModule, MatInputModule, MatIconModule, BrowserAnimationsModule, MatTableModule, MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
