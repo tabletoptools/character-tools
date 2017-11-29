@@ -3,14 +3,19 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import {MatCardModule, MatExpansionModule, MatIconModule, MatInputModule, MatTableModule} from "@angular/material";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { CharacterFormComponent } from './character-form/character-form.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CharacterListComponent,
+    CharacterFormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, MatExpansionModule, MatCardModule, MatInputModule, MatIconModule, BrowserAnimationsModule, MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
