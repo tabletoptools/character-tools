@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Character} from "../Model";
 import {AppForm} from "../Form";
+import {NgForm} from "@angular/forms";
 
 @Component({
     selector: 'app-character-form',
@@ -15,7 +16,10 @@ export class CharacterFormComponent extends AppForm implements OnInit {
     @Output()
     modelChange: EventEmitter<Character> = new EventEmitter();
 
+    @ViewChild('form') form: NgForm;
+
     constructor() {
+        super();
     }
 
     ngOnInit() {
