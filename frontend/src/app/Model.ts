@@ -40,31 +40,27 @@ export class Stat {
     }
 
     get modifier(): number {
-        return Math.floor((value - 10) / 2);
+        return Math.floor((this.value - 10) / 2);
     }
 }
 
 export class Die {
     //Format: MultiplierXSize: 1d6
-    multiplier: number;
-    size: number;
+    value: string;
 
-    constructor(multiplier: number, size: number) {
-        this.multiplier = multiplier;
-        this.size = size;
+    constructor(value: string) {
+        this.value = value;
     }
 
-    constructor(die: string) {
-        let values = die.split('x');
-        this.multiplier = values[0];
-        this.size = values[1];
-    }
-
-    roll() {
+    roll(): number {
+        let values = this.value.split('x');
+        let multiplier = +values[0];
+        let size = +values[1];
         let total = 0;
-        for(let counter = 0; counter < this.multiplier; counter++) {
-            total += this.random(this.size);
+        for(let counter = 0; counter < multiplier; counter++) {
+            total += this.random(size);
         }
+        return total;
     }
 
     private random(max) {
