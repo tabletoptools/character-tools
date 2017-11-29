@@ -10,13 +10,21 @@ export class Character {
     wisdom: Stat;
     intelligence: Stat;
     strength: Stat;
+    image: string;
+
+    get level(): number {
+        //get level here
+        return 0;
+    }
 }
 
 export class Race {
+    name: string;
     healthDie: Die;
 }
 
 export class CharacterClass {
+    name: string;
 
 }
 
