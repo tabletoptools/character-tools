@@ -1,0 +1,22 @@
+<form (change)="modelChange.emit(model)" #form="ngForm">
+
+    <mat-form-field>
+        <input [required]="true" matInput name="name" #name="ngModel" [(ngModel)]="model.name" />
+        <mat-placeholder>Name</mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select [required]="true" name="race" #name="ngModel" [(ngModel)]="model.race">
+            <mat-option [value]="race" *ngFor="let race of races" >{{race.name}}</mat-option>
+        </mat-select>
+        <mat-placeholder>Choose a Race</mat-placeholder>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select [required]="true" name="class" #name="ngModel" [(ngModel)]="model.class">
+            <mat-option [value]="class" *ngFor="let class of classes">{{class.name}}</mat-option>
+        </mat-select>
+        <mat-placeholder>Choose a Class</mat-placeholder>
+    </mat-form-field>
+
+</form>

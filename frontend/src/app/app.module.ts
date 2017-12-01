@@ -11,19 +11,49 @@ import {
     MatToolbarModule
 } from "@angular/material";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { CharacterFormComponent } from './character-form/character-form.component';
-import {CharacterListComponent} from "./character-list/character-list.component";
+import { CharacterFormComponent } from './character/character-form/character-form.component';
+import {CharacterListComponent} from "./character/character-list/character-list.component";
 import {FormsModule} from "@angular/forms";
+import { NewcharacterComponent } from './character/newcharacter/newcharacter.component';
+import {RouterModule, Routes} from "@angular/router";
+import { CharacterComponent } from './character/character.component';
 
+const ROUTE_CONFIG: Routes = [
+    {
+        path: "characters",
+        component: CharacterComponent,
+        children: [
+            {
+                path: 'list',
+                component: CharacterListComponent
+            },
+            {
+                path: "new",
+                component: NewcharacterComponent
+            }
+        ]
+    },
+    {
+        path: '',
+        redirectTo: 'characters/list',
+        pathMatch: 'full'
+    },
+    {
+        path: '**',
+        redirectTo: 'characters/list'
+    }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     CharacterListComponent,
-    CharacterFormComponent
+    CharacterFormComponent,
+    NewcharacterComponent,
+    CharacterComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, RouterModule.forRoot(ROUTE_CONFIG),
       MatExpansionModule, MatCardModule, MatMenuModule,
       MatToolbarModule, MatCheckboxModule, MatSelectModule,
       MatAutocompleteModule, MatRadioModule, MatInputModule,
