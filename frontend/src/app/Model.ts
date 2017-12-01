@@ -1,34 +1,51 @@
-export class Character {
+export interface Character {
     name: string;
+    level: number;
+    exp: number;
     health: number;
-    armorClass: number;
+    ac: number;
+    maxhp: number;
+    currhp: number;
+    gender: string;
+    skin: string;
+    height: string;
+    weight: string;
+    age: string;
     race: Race;
     class: CharacterClass;
     spells: Spell[];
-    preparedSpells: Spell[];
     constitution: Stat;
     wisdom: Stat;
     intelligence: Stat;
     strength: Stat;
+    dexterity: Stat;
+    charisma: Stat;
     image: string;
+    background: Background;
+    alignment: string;
+    languages: string[];
+    inventory: Inventory;
 
-    get level(): number {
-        //get level here
-        return 0;
-    }
 }
 
-export class Race {
+export interface Race {
     name: string;
-    healthDie: Die;
+    healthDie: string;
 }
 
-export class CharacterClass {
+export interface CharacterClass {
     name: string;
+}
+
+export interface Spell {
 
 }
 
-export class Spell {
+export interface Background {
+
+}
+
+export interface Inventory {
 
 }
 
@@ -52,27 +69,13 @@ export class Stat {
     }
 }
 
-export class Die {
-    //Format: MultiplierXSize: 1d6
-    value: string;
-
-    constructor(value: string) {
-        this.value = value;
+export function roll(dice: string): number {
+    let values = dice.split('x');
+    let multiplier = +values[0];
+    let size = +values[1];
+    let total = 0;
+    for(let counter = 0; counter < multiplier; counter++) {
+        total += this.random(size);
     }
-
-    roll(): number {
-        let values = this.value.split('x');
-        let multiplier = +values[0];
-        let size = +values[1];
-        let total = 0;
-        for(let counter = 0; counter < multiplier; counter++) {
-            total += this.random(size);
-        }
-        return total;
-    }
-
-    private random(max) {
-        return Math.floor(Math.random() * ((max-1)+1)+1)
-    }
-
+    return total;
 }
