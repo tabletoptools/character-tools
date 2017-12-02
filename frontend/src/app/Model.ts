@@ -10,16 +10,17 @@ export interface Character {
     skin: string;
     height: string;
     weight: string;
+    playername: string;
     age: string;
     race: Race;
     class: CharacterClass;
     spells: Spell[];
-    constitution: Stat;
-    wisdom: Stat;
-    intelligence: Stat;
-    strength: Stat;
-    dexterity: Stat;
-    charisma: Stat;
+    constitution: number;
+    wisdom: number;
+    intelligence: number;
+    strength: number;
+    dexterity: number;
+    charisma: number;
     image: string;
     background: Background;
     alignment: string;
@@ -31,6 +32,23 @@ export interface Character {
 export interface Race {
     name: string;
     healthDie: string;
+    strInc: number;
+    dexInc: number;
+    constInc: number;
+    intInc: number;
+    wisInc: number;
+    charInc: number;
+    maxAge: number;
+    maxYouthAge: number;
+    recommendedAlignment: string;
+    averageWeight: number;
+    averageHeight: number;
+    darkvision: boolean;
+    resistances: Resistance[];
+    proficiencies: any; //Prof Enum
+    subraces: Race[];
+    languages: string[];
+
 }
 
 export interface CharacterClass {
@@ -49,24 +67,24 @@ export interface Inventory {
 
 }
 
-export class Stat {
-    private _value: number;
+export enum Resistance {
+    POISON = 1
+}
 
-    constructor(value: number) {
-        this._value = value;
-    }
+export enum WeaponProf {
 
-    get value(): number {
-        return this._value;
-    }
+}
 
-    set value(value: number) {
-        this._value = value;
-    }
+export enum ToolProf {
 
-    get modifier(): number {
-        return Math.floor((this.value - 10) / 2);
-    }
+}
+
+export enum SkillProf {
+
+}
+
+export function modifier(stat: number): number {
+    return Math.floor((stat - 10) / 2);
 }
 
 export function roll(dice: string): number {
@@ -74,7 +92,7 @@ export function roll(dice: string): number {
     let multiplier = +values[0];
     let size = +values[1];
     let total = 0;
-    for(let counter = 0; counter < multiplier; counter++) {
+    for (let counter = 0; counter < multiplier; counter++) {
         total += this.random(size);
     }
     return total;
