@@ -5,9 +5,10 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {
     MatAutocompleteModule,
-    MatButtonModule, MatCardModule, MatCheckboxModule, MatExpansionModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatMenuModule, MatRadioModule,
+    MatButtonModule, MatCardModule, MatCheckboxModule, MatExpansionModule, MatFormFieldModule, MatGridListModule,
+    MatIconModule, MatInputModule, MatMenuModule, MatRadioModule,
     MatSelectModule,
-    MatTableModule,
+    MatTableModule, MatTabsModule,
     MatToolbarModule
 } from "@angular/material";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -17,6 +18,8 @@ import {FormsModule} from "@angular/forms";
 import { NewcharacterComponent } from './character/newcharacter/newcharacter.component';
 import {RouterModule, Routes} from "@angular/router";
 import { CharacterComponent } from './character/character.component';
+import { CharacterControlComponent } from './character/character-control/character-control.component';
+import { RaceFormComponent } from './character/race-form/race-form.component';
 
 const ROUTE_CONFIG: Routes = [
     {
@@ -50,7 +53,9 @@ const ROUTE_CONFIG: Routes = [
     CharacterListComponent,
     CharacterFormComponent,
     NewcharacterComponent,
-    CharacterComponent
+    CharacterComponent,
+    CharacterControlComponent,
+    RaceFormComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(ROUTE_CONFIG),
@@ -59,7 +64,7 @@ const ROUTE_CONFIG: Routes = [
       MatAutocompleteModule, MatRadioModule, MatInputModule,
       MatIconModule, BrowserAnimationsModule, MatTableModule,
       MatFormFieldModule, FormsModule, MatButtonModule,
-      MatGridListModule
+      MatGridListModule, MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
